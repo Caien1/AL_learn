@@ -1,0 +1,4 @@
+2/3/25
+--project stetup complete
+--Window setup complete, code compiles with no errors but no window pops up
+-- Fixed the window issue the WindowClass had to intialised to {0}
