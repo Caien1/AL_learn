@@ -2,3 +2,7 @@
 --project stetup complete
 --Window setup complete, code compiles with no errors but no window pops up
 -- Fixed the window issue the WindowClass had to intialised to {0}
+2/3/25
+--Drew on the window that is in 
+--No other progress was made as far as what i am trying to acheive 
+
