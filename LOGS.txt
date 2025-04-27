@@ -6,3 +6,5 @@
 --Drew on the window that is in 
 --No other progress was made as far as what i am trying to acheive 
 
+04/27/25
+-- fixed the issue in which window kept runnin even after pressing close
