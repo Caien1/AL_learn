@@ -2,6 +2,12 @@
 #include <windows.h>
 #include <stdio.h>
 
+static bool Running;
+
+void ResizeDIBSection(int,int){
+    
+}
+
 LRESULT CALLBACK Wndproc(
     HWND Window,
     UINT Message,
@@ -14,7 +20,18 @@ LRESULT CALLBACK Wndproc(
     {
     case WM_SIZE:
     {
-    }
+        RECT ClientRect;
+        GetClientRect(Window, &ClientRect );
+        int Width = ClientRect.right - ClientRect.left;
+        int Height = ClientRect.bottom - ClientRect.left;
+        ResizeDIBSection(Width,Height);
+
+       
+    }break;
+    case WM_CLOSE:{
+        PostQuitMessage(0);// is the way the app stops 
+        DestroyWindow(Window);
+    }break;
     case WM_PAINT:
     {
        PAINTSTRUCT Paint;
@@ -103,6 +120,7 @@ int WINAPI WinMain(
     }
     else
     {
+        //TODO (Caien): Logging
     }
 
     return (0);
