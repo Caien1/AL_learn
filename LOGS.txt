@@ -8,3 +8,5 @@
 
 04/27/25
 -- fixed the issue in which window kept runnin even after pressing close
+04/29/25
+-- window resizing etc
