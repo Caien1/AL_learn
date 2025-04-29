@@ -4,8 +4,24 @@
 
 static bool Running;
 
-void ResizeDIBSection(int,int){
+
+
+//device independent bitmap
+static void ResizeDIBSection(int,int){
+BITMAPINFO BitmapInfo;
+BitmapInfo = {};
+void *BitmapMemory;
+HBITMAP BitmapHandle=CreateDIBSection(DeviceContext,&BitmapInfo,DIB_RGB_COLORS,&BitmapMemory, 0, 0);
     
+}
+
+static  void UpdateWindows(HDC DeviceContext,int X, int Y, int Width, int Height ){
+StretchDIBits(DeviceContext
+    ,X,Y,Width,Height
+    ,X,Y,Width,Height,void,const,
+DIB_RGB_COLORS,
+SRCCOPY);
+
 }
 
 LRESULT CALLBACK Wndproc(
@@ -40,8 +56,10 @@ LRESULT CALLBACK Wndproc(
        int Y =Paint.rcPaint.top;
        int Width = Paint.rcPaint.right - Paint.rcPaint.left;
        int Height = Paint.rcPaint.bottom - Paint.rcPaint.top;
+        
        static DWORD Operation = WHITENESS;
-       PatBlt(DeviceContext,X,Y,Width,Height,Operation);
+
+       UpdateWindows(DeviceContext,X,Y,Width,Height);
 
        if(Operation == WHITENESS){
         Operation = BLACKNESS;
